@@ -12,15 +12,15 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
      $(document).ready(function(){
-        $('button#submitBtn').click(function() {
-            $.get("https://api.github.com/users/VictoriaaRoman/repos", function(data){
-                $.each (data, function(element){
-                    $(#tabla > tbody).append(
+        $('#boton').click(function() {
+            $.get("https://api.github.com/users/"+user.value+"/repos", function(data){
+                $.each (data, function(index, element){
+                   $("#tabla tbody").append(
                         '<tr><td>' + JSON.stringify(element.name)+
                         '</td><td>' + JSON.stringify(element.description)+
-                        '</td><td>' + JSON.stringify(element.starred_url)+
+                        '</td><td>' + JSON.stringify(element.language)+
                         '</td></tr>'
-                    );
+                   );
                 });
             });
         });
@@ -43,7 +43,7 @@
                 <tr>
                     <th>Nombre</th>
                     <th>Descripción</th>
-                    <th>Seguidores</th>
+                    <th>Numero de seguidores</th>
                 </tr>
                 </thead>
                 <tbody>
